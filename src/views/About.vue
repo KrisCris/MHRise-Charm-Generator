@@ -6,6 +6,6 @@
     <p>请不要一次性选择超过50个技能，那个配装器没法导入那么多。</p>
     <h1></h1>
     <br>
-    <a href="">source code</a>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/KrisCris/MHRise-Charm-Generator">source code</a>
   </div>
 </template>
