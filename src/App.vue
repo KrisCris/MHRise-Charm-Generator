@@ -1,6 +1,6 @@
 <template>
     <div id="nav">
-        <router-link to="/"> Home </router-link> 
+        <router-link to="/"> Home </router-link>
         <router-link to="/about"> About </router-link> |
         <select v-model="$store.state.lang">
             <option>zh-hans</option>
@@ -9,6 +9,19 @@
     </div>
     <router-view />
 </template>
+
+<script>
+export default {
+    mounted(){
+        if(/^zh\b/.test(navigator.language)){
+            this.$store.state.lang = 'zh-hans';
+        }
+        else {
+            this.$store.state.lang = 'en';
+        }
+    }
+};
+</script>
 
 <style>
 body {
