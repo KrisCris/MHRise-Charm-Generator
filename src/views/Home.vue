@@ -15,7 +15,7 @@
         <div>
             <button class="gen" @click="generateCharms">Copy Result</button>
         </div>
-        <p v-for="(val, key) in output" :key="key"> {{val.toString(this.$store.state.lang)}} </p>
+        <p v-for="val in output" :key="val"> {{val.toString(this.$store.state.lang)}} </p>
     </div>
 </template>
 
@@ -27,32 +27,34 @@ export default {
     name: "Home",
     data() {
         return {
-            output: {},
+            output: [],
         };
     },
     methods: {
         generateCharms() {
-            this.output = {};
+            this.output = [];
             for (let skill1 of this.filterSelectedSkills) {
                 for (let skill2 of this.filterSelectedSkills) {
                     if (skill1 == skill2){
                         if (this.filterSelectedSkills.length != 1) continue;
                     }
-                    let charm = new Charm(skill1, skill2);
-                    if (this.output[charm.hashCode()] == undefined) {
-                        this.output[charm.hashCode()] = charm;
+                    if(skill1.id > skill2.id) {
+                        if (skill1.maxLvl[0]==skill1.maxLvl[1] && skill2.maxLvl[0]==skill2.maxLvl[1]) continue;
                     }
+                    let charm = new Charm(skill1, skill2);
+                    this.output.push(charm);
                 }
             }
             
             // to clipboard
             let str = "";
-            for(let item in this.output){
-                str += this.output[item].toString(this.$store.state.lang);
+            for(let item of this.output){
+                str += item.toString(this.$store.state.lang);
                 str += "\n";
             }
             this.updateClipboard(str);
         },
+
         updateClipboard(newClip) {
             let that = this;
             navigator.clipboard.writeText(newClip).then(

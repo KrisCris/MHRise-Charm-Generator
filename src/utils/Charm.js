@@ -23,14 +23,4 @@ export default class Charm{
         if(this.skill1 == this.skill2) return this.skill1.getName(lang)+','+this.skill1.maxLvl[0]+','+','+0+','+this.deco[0]+','+this.deco[1]+','+this.deco[2];
         return this.skill1.getName(lang)+','+this.skill1.maxLvl[0]+','+this.skill2.getName(lang)+','+this.skill2.maxLvl[1]+','+this.deco[0]+','+this.deco[1]+','+this.deco[2];
     }
-
-    hashCode() {
-        let result = this.skill1.id * this.skill1.maxLvl[0] + this.skill2.id * this.skill1.maxLvl[1];
-        for(let lvl of this.deco) {
-            result = 31 * result + lvl;
-        }
-        return result;
-    }
-
-
 }
