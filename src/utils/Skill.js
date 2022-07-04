@@ -1,10 +1,8 @@
-import { zh_hans } from './lang/zh-hans.js'
-import { zh_hant } from './lang/zh-hant.js'
-import { en } from './lang/en.js'
+import { skills_name as chs } from './lang/zh-hans.js'
+import { skills_name as en } from './lang/en.js'
 export default class Skill {
     static names = {
-        'zh-hans': zh_hans,
-        'zh-hant': zh_hant,
+        'zh-hans': chs,
         'en': en
     }
     id;

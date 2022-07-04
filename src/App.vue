@@ -3,8 +3,8 @@
         <router-link to="/"> Home </router-link>
         <router-link to="/about"> About </router-link> |
         <select v-model="$store.state.lang">
-            <option>zh-hans</option>
-            <option>en</option>
+            <option label="简体中文">zh-hans</option>
+            <option label="English">en</option>
         </select>
     </div>
     <router-view />
@@ -13,6 +13,7 @@
 <script>
 export default {
     mounted(){
+        // Use Chinese if the browser is in Chinese
         if(/^zh\b/.test(navigator.language)){
             this.$store.state.lang = 'zh-hans';
         }
@@ -56,6 +57,11 @@ a {
     color: #13ffeb;
 }
 p {
+    color: #64ff8d;
+    font-weight: bold;
+}
+
+label {
     color: #64ff8d;
     font-weight: bold;
 }
