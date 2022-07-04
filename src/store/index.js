@@ -4,7 +4,10 @@ export default createStore({
   state: {
     lang: "zh_hans",
     meldingCate: 1,
-    enableLv4Deco: false,
+    // 0 = No Lv4 Deco
+    // 1 = Only 4-0-0 Deco
+    // 2 = Allow 4-2-1 and 4-1-1
+    lv4DecoSettings: 0,
     skills: [
       // skills[0] = MHRise
       // skills[1] = MHRise:SB

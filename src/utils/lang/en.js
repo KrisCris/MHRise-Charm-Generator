@@ -101,16 +101,16 @@ export const skills_name = {
     107: "Rapid Morph",
     108: "Hellfire Cloak",
     // Translation required...
-    116: "因祸得福",
-    122: "合气",
-    123: "提供",
-    124: "蓄力大师",
-    125: "攻势",
-    126: "零件改造",
-    127: "打磨术【锐】",
-    128: "刃鳞打磨",
-    129: "走壁移动【翔】",
-    131: "连击"
+    116: "Coalescence",
+    122: "Redirection",
+    123: "Spiribird's Call",
+    124: "Charge Master",
+    125: "Foray",
+    126: "Tune-Up",
+    127: "Grinder (S)",
+    128: "Bladescale Hone",
+    129: "Wall Runner (Boost)",
+    131: "Chain Crit"
 };
 export const meldingCates_name = {
     0: "Wisp of Mystery",

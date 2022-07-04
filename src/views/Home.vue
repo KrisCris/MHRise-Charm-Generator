@@ -20,12 +20,12 @@
             </select>
         </div>
         <div v-if="$store.state.meldingCate == 1">
-            <input
-                type="checkbox"
-                id="lv4Deco"
-                v-model="$store.state.enableLv4Deco"
-            />
-            <label for="lv4Deco"> Use Lv.4 Deco</label><br />
+            <p class="inline">Lv4 Deco Settings: {{$store.state.lv4DecoSettings}}</p>
+            <select v-model="$store.state.lv4DecoSettings" class="inline">
+                <option label="Disable LV4 Deco">0</option>
+                <option label="Allow Single LV4 Slot (4-0-0) (Can be obtained from game)">1</option>
+                <option label="Allow 4-1-1 and 4-2-1  (Can't be obtained from game normally)">2</option>
+            </select>
         </div>
 
         <div class="skillSelector">
@@ -91,8 +91,9 @@ export default {
                     }
                 }
             }
-            loopCharms();
-            if (this.$store.state.enableLv4Deco) {
+            loopCharms(this.$store.state.lv4DecoSettings == 2 ? 2 : 0);
+            // gen 4-0-0
+            if (this.$store.state.lv4DecoSettings == 1) {
                 loopCharms(true);
             }
             // to clipboard
